@@ -1,0 +1,117 @@
+{
+  "user_agent": "WikiAIMetrics/1.0 (https://github.com/alex-o-748/wiki-ai-dashboard; https://meta.wikimedia.org/wiki/User:Alaexis)",
+
+  "pages": {
+    "latest": "Data:Wikimedia AI/Latest.tab",
+    "history": "Data:Wikimedia AI/History.tab",
+    "totals": "Data:Wikimedia AI/Totals.tab"
+  },
+
+  "wiki_groups": {
+    "tag_wikis": ["en", "es", "fr", "de", "ru", "ja", "pt", "it", "ar", "id", "uk", "zh", "fa", "pl", "eu"],
+    "search_wikis": ["en", "es", "ja", "de", "it", "zh", "fr", "ar", "pl", "fa", "id", "pt", "ca", "nl", "fi",
+                     "uk", "ko", "bn", "vi", "he", "el", "tr", "hu", "sv", "eu", "hi", "simple", "cs", "gu", "ru"]
+  },
+
+  "metrics": {
+    "content_translation": {
+      "source": "tag",
+      "wikis": "tag_wikis",
+      "tags": ["contenttranslation"],
+      "description": "Edits tagged contenttranslation: articles published with Content Translation, which offers machine translation"
+    },
+    "add_link": {
+      "source": "tag",
+      "wikis": "tag_wikis",
+      "tags": ["newcomer task add link"],
+      "description": "Edits tagged 'newcomer task add link': links suggested by a machine-learning model, added by newcomers"
+    },
+    "editcheck_tone": {
+      "source": "tag",
+      "wikis": "tag_wikis",
+      "tags": ["editcheck-tone"],
+      "description": "Edits tagged editcheck-tone: added text a model flagged for tone"
+    },
+    "editcheck_llm_paste": {
+      "source": "tag",
+      "wikis": "tag_wikis",
+      "tags": ["editcheck-llm-paste"],
+      "description": "Edits tagged editcheck-llm-paste: pasted text that Edit check asked about as possibly AI-generated"
+    },
+    "community_ai_filter": {
+      "source": "tag",
+      "wikis": "tag_wikis",
+      "tags_by_wiki": {
+        "en": ["possible AI-generated citations"],
+        "es": ["Posible chatbot"],
+        "fr": ["IA"],
+        "ru": ["suspected-ai"],
+        "pt": ["Citação possivelmente obtida com IA"],
+        "id": ["kemungkinan kutipan dari AI", "menambahkan URL dari ChatGPT"],
+        "uk": ["suspected-ai"],
+        "zh": ["possible AI-generated citations"],
+        "pl": ["wspomagany przez AI"]
+      },
+      "description": "Edits tagged by the wiki's own edit filter(s) for suspected AI-written content; 0 where the wiki has no such filter"
+    },
+    "ml_vandalism_tag": {
+      "source": "tag",
+      "wikis": ["ja"],
+      "tags_by_wiki": {
+        "ja": ["AI: Possible Vandalism?"]
+      },
+      "description": "Edits tagged by Japanese Wikipedia's experimental deep-learning vandalism detector (not about AI-written text)"
+    },
+    "chatgpt_links": {
+      "source": "search",
+      "wikis": "search_wikis",
+      "query": "insource:\"utm_source=chatgpt.com\"",
+      "description": "Articles whose source contains utm_source=chatgpt.com"
+    },
+    "oaicite": {
+      "source": "search",
+      "wikis": "search_wikis",
+      "query": "insource:\"oaicite\"",
+      "description": "Articles whose source contains oaicite"
+    },
+    "copilot_links": {
+      "source": "search",
+      "wikis": "search_wikis",
+      "query": "insource:\"utm_source=copilot.com\"",
+      "description": "Articles whose source contains utm_source=copilot.com"
+    },
+    "cluebot_ng_edits": {
+      "source": "editcount",
+      "users": {"en": "ClueBot NG"},
+      "description": "Edit count of ClueBot NG"
+    },
+    "serobot_edits": {
+      "source": "editcount",
+      "users": {"es": "SeroBot"},
+      "description": "Edit count of SeroBot"
+    },
+    "patroclebot_edits": {
+      "source": "editcount",
+      "users": {"ro": "PatrocleBot"},
+      "description": "Edit count of PatrocleBot"
+    },
+    "automoderator_edits": {
+      "source": "editcount",
+      "users": {
+        "id": "Automoderator",
+        "tr": "Otomoderatör",
+        "uk": "Автомодератор",
+        "vi": "Kiểm tra tự động",
+        "af": "OutoModerator",
+        "bn": "স্বয়ংক্রিয় টহলদার",
+        "az": "Avtomoderator",
+        "zh": "AutoModerator",
+        "es": "Automoderador",
+        "it": "Moderatore Automatico",
+        "nl": "BijdragenScanner",
+        "sq": "Automoderatori"
+      },
+      "description": "Edit count of the Automoderator account on each wiki where it is deployed"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+<!--
+How to replace the hand-typed numbers on User:Alaexis/AI draft with numbers read from
+commons:Data:Wikimedia AI/Latest.tab, through Module:AI dashboard.
+
+  {{#invoke:AI dashboard|value|METRIC}}              total over the wikis checked
+  {{#invoke:AI dashboard|value|METRIC|WIKI}}         one wiki (language code, e.g. en, simple)
+  {{#invoke:AI dashboard|value|METRIC|wikis_nonzero}}  wikis where it is above 0
+  {{#invoke:AI dashboard|value|METRIC|wikis_checked}}  wikis read successfully this week
+  {{#invoke:AI dashboard|date}}                      the date of the data, e.g. 2 November 2026
+
+  Options: link=URL (linked only when not 0), zero=– (text for 0), missing=… (default –), raw=1 (no separators)
+
+Metrics: content_translation, add_link, editcheck_tone, editcheck_llm_paste, community_ai_filter,
+ml_vandalism_tag (ja), chatgpt_links, oaicite, copilot_links, cluebot_ng_edits (en),
+serobot_edits (es), patroclebot_edits (ro), automoderator_edits (12 wikis).
+
+Each block below is the current text with the numbers swapped out. Copy what you need.
+-->
+
+== Tiles ==
+
+<!-- Content Translation -->
+<div style="flex:1 1 13em; border:1px solid #a2a9b1; border-radius:4px; padding:0.5em 0.8em;">
+<div style="font-size:2.2em; font-weight:bold; line-height:1.2;">{{#invoke:AI dashboard|value|content_translation}}</div>
+translations published with Content Translation, which offers machine translation, on {{#invoke:AI dashboard|value|content_translation|wikis_checked}} large Wikipedias.
+<div style="font-size:85%;">Source: <code>contenttranslation</code> change-tag count on each wiki's Special:Tags, summed · [[#tools-by-wiki|by wiki]] · [[:c:Data:Wikimedia AI/Latest.tab|data]] · {{#invoke:AI dashboard|date}}</div>
+</div>
+
+<!-- Add a link -->
+<div style="flex:1 1 13em; border:1px solid #a2a9b1; border-radius:4px; padding:0.5em 0.8em;">
+<div style="font-size:2.2em; font-weight:bold; line-height:1.2;">{{#invoke:AI dashboard|value|add_link}}</div>
+newcomer edits adding links suggested by a machine-learning model, on the same {{#invoke:AI dashboard|value|add_link|wikis_checked}} Wikipedias.
+<div style="font-size:85%;">Source: <code>newcomer task add link</code> change-tag count on each wiki's Special:Tags, summed · [[#tools-by-wiki|by wiki]] · [[:c:Data:Wikimedia AI/Latest.tab|data]] · {{#invoke:AI dashboard|date}}</div>
+</div>
+
+<!-- Community AI filters: "9 / 15" -->
+<div style="flex:1 1 13em; border:1px solid #a2a9b1; border-radius:4px; padding:0.5em 0.8em;">
+<div style="font-size:2.2em; font-weight:bold; line-height:1.2;">{{#invoke:AI dashboard|value|community_ai_filter|wikis_nonzero}}&nbsp;/&nbsp;{{#invoke:AI dashboard|value|community_ai_filter|wikis_checked}}</div>
+Wikipedias checked run a community edit filter that tags suspected AI-written edits.
+<div style="font-size:85%;">Source: each wiki's Special:Tags, checked for a community tag on suspected AI-written edits · [[#tools-by-wiki|by wiki]] · [[:c:Data:Wikimedia AI/Latest.tab|data]] · {{#invoke:AI dashboard|date}}</div>
+</div>
+
+<!-- ChatGPT links: "11,104 ... on 29 of the 30 Wikipedias checked" -->
+<div style="flex:1 1 13em; border:1px solid #a2a9b1; border-radius:4px; padding:0.5em 0.8em;">
+<div style="font-size:2.2em; font-weight:bold; line-height:1.2;">{{#invoke:AI dashboard|value|chatgpt_links}}</div>
+articles contain a link that came through ChatGPT, on {{#invoke:AI dashboard|value|chatgpt_links|wikis_nonzero}} of the {{#invoke:AI dashboard|value|chatgpt_links|wikis_checked}} Wikipedias checked.
+<div style="font-size:85%;">Source: article search for <code>insource:"utm_source=chatgpt.com"</code> on each Wikipedia, summed · [[#leftovers|by wiki]] · [[:c:Data:Wikimedia AI/Latest.tab|data]] · {{#invoke:AI dashboard|date}}</div>
+</div>
+
+<!-- The Toolhub (~80) and AI-policy (28) tiles stay hand-typed: they aren't collected. -->
+
+== Lines in the tool lists ==
+
+* [[en:user:ClueBot NG]]
+** <small>{{#invoke:AI dashboard|value|cluebot_ng_edits|en}} edits on English Wikipedia, {{#invoke:AI dashboard|date}}</small>
+
+* [https://toolhub.wikimedia.org/tools/toolforge-patrocle PatrocleBot] <small>(ro)</small> – reverts edits that score high on the Foundation's ORES and revert-risk models. <small>· {{#invoke:AI dashboard|value|patroclebot_edits|ro}} edits</small>
+
+<!-- Automoderator: total over the wikis where it runs -->
+* [[mw:Special:MyLanguage/Moderator Tools/Automoderator|Moderator Tools/Automoderator]] <small>· {{#invoke:AI dashboard|value|automoderator_edits}} edits on {{#invoke:AI dashboard|value|automoderator_edits|wikis_checked}} Wikipedias</small>
+
+<!-- SeroBot (es), not on the page yet -->
+* [[:es:Usuario:SeroBot|SeroBot]] <small>(es)</small> <small>· {{#invoke:AI dashboard|value|serobot_edits|es}} edits</small>
+
+== "AI at work on each wiki" table ==
+
+<!-- Intro sentence -->
+Every number below is a count of edits carrying a change tag, since that tag was introduced, read on {{#invoke:AI dashboard|date}}. Each opens that wiki's recent changes filtered to the tag, which shows the last 30 days live. A dash means no tagged edits there. The last column counts articles, on {{#invoke:AI dashboard|date}} (see [[#leftovers|chatbot leftovers]]).
+
+<!-- One row. Repeat for each wiki, changing "en" and the hosts; the link is dropped when the count is 0. -->
+|-
+| style="text-align:left" | [[:en:|{{#language:en|{{PAGELANGUAGE}}}}]] || {{#invoke:AI dashboard|value|content_translation|en|zero=–|link=https://en.wikipedia.org/wiki/Special:RecentChanges?tagfilter=contenttranslation&days=30&limit=500}} || {{#invoke:AI dashboard|value|add_link|en|zero=–|link=https://en.wikipedia.org/wiki/Special:RecentChanges?tagfilter=newcomer%20task%20add%20link&days=30&limit=500}} || {{#invoke:AI dashboard|value|editcheck_tone|en|zero=–|link=https://en.wikipedia.org/wiki/Special:RecentChanges?tagfilter=editcheck-tone&days=30&limit=500}} || {{#invoke:AI dashboard|value|editcheck_llm_paste|en|zero=–|link=https://en.wikipedia.org/wiki/Special:RecentChanges?tagfilter=editcheck-llm-paste&days=30&limit=500}} || {{#invoke:AI dashboard|value|community_ai_filter|en|zero=–|link=https://en.wikipedia.org/wiki/Special:RecentChanges?tagfilter=possible%20AI-generated%20citations&days=30&limit=500}} <small>(possible AI-generated citations)</small> || {{#invoke:AI dashboard|value|chatgpt_links|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22utm_source%3Dchatgpt.com%22&title=Special%3ASearch&ns0=1&fulltext=1}}
+
+<!-- Japanese: the filter column shows the vandalism tag, kept as its own metric -->
+| {{#invoke:AI dashboard|value|ml_vandalism_tag|ja|zero=–|link=https://ja.wikipedia.org/wiki/Special:RecentChanges?tagfilter=AI%3A%20Possible%20Vandalism%3F&days=30&limit=500}} <small>(AI: Possible Vandalism?)</small><sup>[[#vandal-note|*]]</sup>
+
+<!-- Indonesian: the data has one number, the sum of its two filter tags -->
+| {{#invoke:AI dashboard|value|community_ai_filter|id|zero=–}} <small>([https://id.wikipedia.org/wiki/Special:RecentChanges?tagfilter=kemungkinan%20kutipan%20dari%20AI&days=30&limit=500 kemungkinan kutipan dari AI] + [https://id.wikipedia.org/wiki/Special:RecentChanges?tagfilter=menambahkan%20URL%20dari%20ChatGPT&days=30&limit=500 menambahkan URL dari ChatGPT])</small>
+
+== "Chatbot leftovers" table ==
+
+{| class="wikitable sortable mw-collapsible mw-collapsed" style="text-align:right"
+|+ Articles containing each trace on {{#invoke:AI dashboard|date}}. Each number is a link to the same search, run live.
+! style="text-align:left" | Wikipedia !! <code>utm_source=chatgpt.com</code> !! <code>oaicite</code> !! <code>utm_source=copilot.com</code>
+|-
+| style="text-align:left" | [[:en:|{{#language:en|{{PAGELANGUAGE}}}}]] || {{#invoke:AI dashboard|value|chatgpt_links|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22utm_source%3Dchatgpt.com%22&title=Special%3ASearch&ns0=1&fulltext=1}} || {{#invoke:AI dashboard|value|oaicite|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22oaicite%22&title=Special%3ASearch&ns0=1&fulltext=1}} || {{#invoke:AI dashboard|value|copilot_links|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22utm_source%3Dcopilot.com%22&title=Special%3ASearch&ns0=1&fulltext=1}}
+<!-- ...one row per wiki, 30 in all; "simple" is Simple English -->
+|-
+! style="text-align:left" | Total !! {{#invoke:AI dashboard|value|chatgpt_links}} !! {{#invoke:AI dashboard|value|oaicite}} !! {{#invoke:AI dashboard|value|copilot_links}}
+|}
