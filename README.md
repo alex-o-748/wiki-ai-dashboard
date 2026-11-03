@@ -59,10 +59,10 @@ the Toolhub Evolved tool count (~80; its search matches substrings, so the count
 
 | date | metric | wiki | value |
 |---|---|---|---|
-| 2026-11-09 | content_translation | en | 67929 |
-| 2026-11-09 | content_translation | total | 1213120 |
-| 2026-11-09 | content_translation | wikis_nonzero | 15 |
-| 2026-11-09 | content_translation | wikis_checked | 15 |
+| 2026-11-03 | content_translation | en | 67929 |
+| 2026-11-03 | content_translation | total | 1211064 |
+| 2026-11-03 | content_translation | wikis_nonzero | 15 |
+| 2026-11-03 | content_translation | wikis_checked | 15 |
 
 `date` is the day of the run (UTC). `value` is empty when that wiki couldn't be read.
 
@@ -168,7 +168,7 @@ Weekly, Monday 05:23 UTC:
 toolforge jobs run ai-metrics --image python3.11 --schedule "23 5 * * 1" --command "cd ~/wiki-ai-dashboard && venv/bin/python collect.py"
 ```
 
-A full run makes about 120 requests and takes a few minutes. `--only` and `--skip-search` refuse to
+A full run makes about 120 requests and takes a few minutes (a dry run on 3 November 2026: 122 requests, 181 values). `--only` and `--skip-search` refuse to
 run without `--dry-run`, so a partial run can never overwrite the real totals.
 
 ### 6. Wire up the Meta page
@@ -184,13 +184,13 @@ The module in short:
 
 | Call | Gives |
 |---|---|
-| `{{#invoke:AI dashboard\|value\|content_translation}}` | the total, formatted: 1,213,120 |
+| `{{#invoke:AI dashboard\|value\|content_translation}}` | the total, formatted: 1,211,064 |
 | `{{#invoke:AI dashboard\|value\|content_translation\|en}}` | one wiki |
 | `{{#invoke:AI dashboard\|value\|community_ai_filter\|wikis_nonzero}}` | wikis above 0 (also `wikis_checked`) |
 | `…\|zero=–` | a dash instead of 0 |
 | `…\|link=URL` | the number linked to URL, except when it is 0 or missing |
 | `…\|raw=1` | digits only, for `#expr` |
-| `{{#invoke:AI dashboard\|date}}` | the date of the data: 9 November 2026 |
+| `{{#invoke:AI dashboard\|date}}` | the date of the data: 3 November 2026 |
 
 A missing value shows as `–`. A metric name that doesn't exist shows an error.
 
@@ -212,8 +212,8 @@ The page updates when its cache refreshes. A null edit or `?action=purge` shows 
   save over an edit made in between. A hand edit made before the run is kept in History.tab and
   Totals.tab. Latest.tab is rewritten every week.
 - **Re-running on the same day** replaces that day's rows rather than adding a second set.
-- **History.tab size:** each run adds about 10 KB, and a data page holds 2 MB, so it fills in about
-  3½ years at one run a week. The job warns at 85% full. Before then, archive it: copy the page to
+- **History.tab size:** each run adds about 10 KB, and a data page holds 2 MB, so it fills in nearly
+  4 years at one run a week. The job warns at 85% full. Before then, archive it: copy the page to
   `Data:Wikimedia AI/History 2026–2029.tab`, then cut History.tab's `data` down to the last few
   weeks.
 
