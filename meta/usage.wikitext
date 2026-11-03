@@ -60,7 +60,7 @@ articles contain a link that came through ChatGPT, on {{#invoke:AI dashboard|val
 * [[mw:Special:MyLanguage/Moderator Tools/Automoderator|Moderator Tools/Automoderator]] <small>· {{#invoke:AI dashboard|value|automoderator_edits}} edits on {{#invoke:AI dashboard|value|automoderator_edits|wikis_checked}} Wikipedias</small>
 
 <!-- SeroBot (es), not on the page yet -->
-* [[:es:Usuario:SeroBot|SeroBot]] <small>(es)</small> <small>· {{#invoke:AI dashboard|value|serobot_edits|es}} edits</small>
+* [[:es:Usuario:SeroBOT|SeroBOT]] <small>(es)</small> <small>· {{#invoke:AI dashboard|value|serobot_edits|es}} edits</small>
 
 == "AI at work on each wiki" table ==
 

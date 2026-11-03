@@ -87,8 +87,8 @@
     },
     "serobot_edits": {
       "source": "editcount",
-      "users": {"es": "SeroBot"},
-      "description": "Edit count of SeroBot"
+      "users": {"es": "SeroBOT"},
+      "description": "Edit count of SeroBOT"
     },
     "patroclebot_edits": {
       "source": "editcount",
