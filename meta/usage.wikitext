@@ -65,17 +65,17 @@ articles contain a link that came through ChatGPT, on {{#invoke:AI dashboard|val
 == "AI at work on each wiki" table ==
 
 <!-- Intro sentence -->
-Every number below is a count of edits carrying a change tag, since that tag was introduced, read on {{#invoke:AI dashboard|date}}. Each opens that wiki's Special:Tags, where the same count appears next to the tag. A dash means no tagged edits there. The last column counts articles, on {{#invoke:AI dashboard|date}} (see [[#leftovers|chatbot leftovers]]).
+Every number below is a count of edits carrying a change tag, since that tag was introduced, read on {{#invoke:AI dashboard|date}}. Each wiki's name opens its Special:Tags, which lists the same counts. A dash means no tagged edits there. The last column counts articles, on {{#invoke:AI dashboard|date}} (see [[#leftovers|chatbot leftovers]]).
 
-<!-- One row. Repeat for each wiki, changing "en" and the hosts; the link is dropped when the count is 0. -->
+<!-- One row. Repeat for each wiki, changing "en" and the hosts; the wiki name links to its Special:Tags. -->
 |-
-| style="text-align:left" | [[:en:|{{#language:en|{{PAGELANGUAGE}}}}]] || {{#invoke:AI dashboard|value|content_translation|en|zero=–|link=https://en.wikipedia.org/wiki/Special:Tags}} || {{#invoke:AI dashboard|value|add_link|en|zero=–|link=https://en.wikipedia.org/wiki/Special:Tags}} || {{#invoke:AI dashboard|value|editcheck_tone|en|zero=–|link=https://en.wikipedia.org/wiki/Special:Tags}} || {{#invoke:AI dashboard|value|editcheck_llm_paste|en|zero=–|link=https://en.wikipedia.org/wiki/Special:Tags}} || {{#invoke:AI dashboard|value|community_ai_filter|en|zero=–|link=https://en.wikipedia.org/wiki/Special:Tags}} <small>(possible AI-generated citations)</small> || {{#invoke:AI dashboard|value|chatgpt_links|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22utm_source%3Dchatgpt.com%22&title=Special%3ASearch&ns0=1&fulltext=1}}
+| style="text-align:left" | [[:en:Special:Tags|{{#language:en|{{PAGELANGUAGE}}}}]] || {{#invoke:AI dashboard|value|content_translation|en|zero=–}} || {{#invoke:AI dashboard|value|add_link|en|zero=–}} || {{#invoke:AI dashboard|value|editcheck_tone|en|zero=–}} || {{#invoke:AI dashboard|value|editcheck_llm_paste|en|zero=–}} || {{#invoke:AI dashboard|value|community_ai_filter|en|zero=–}} <small>(possible AI-generated citations)</small> || {{#invoke:AI dashboard|value|chatgpt_links|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22utm_source%3Dchatgpt.com%22&title=Special%3ASearch&ns0=1&fulltext=1}}
 
 <!-- Japanese: the filter column shows the vandalism tag, kept as its own metric -->
-| {{#invoke:AI dashboard|value|ml_vandalism_tag|ja|zero=–|link=https://ja.wikipedia.org/wiki/Special:Tags}} <small>(AI: Possible Vandalism?)</small><sup>[[#vandal-note|*]]</sup>
+| {{#invoke:AI dashboard|value|ml_vandalism_tag|ja|zero=–}} <small>(AI: Possible Vandalism?)</small><sup>[[#vandal-note|*]]</sup>
 
 <!-- Indonesian: the data has one number, the sum of its two filter tags -->
-| {{#invoke:AI dashboard|value|community_ai_filter|id|zero=–|link=https://id.wikipedia.org/wiki/Special:Tags}} <small>(kemungkinan kutipan dari AI + menambahkan URL dari ChatGPT)</small>
+| {{#invoke:AI dashboard|value|community_ai_filter|id|zero=–}} <small>(kemungkinan kutipan dari AI + menambahkan URL dari ChatGPT)</small>
 
 == "Chatbot leftovers" table ==
 

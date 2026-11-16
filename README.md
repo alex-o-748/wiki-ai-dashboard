@@ -39,7 +39,7 @@ For every metric it also writes three summary rows: `total`, `wikis_nonzero` and
 
 **What a tag count means.** It counts every change carrying the tag since the tag was created, bots
 included. MediaWiki keeps it as a running tally rather than recounting, so it is not a 30-day
-figure. The Meta table links each count to the wiki's Special:Tags, which shows the same number.
+figure. In the Meta table each wiki's name links to its Special:Tags, which shows the same numbers.
 
 **Some details:**
 - A wiki without an AI filter counts as checked, with a value of 0. That is how the "9 / 15" tile
