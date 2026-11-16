@@ -64,10 +64,16 @@ articles contain a link that came through ChatGPT, on {{#invoke:AI dashboard|val
 
 == "AI at work on each wiki" table ==
 
-<!-- Intro sentence -->
+<!-- Anchor the tiles' "by wiki" links point to: put it just above the section heading, outside <translate>,
+     so it stays the same on every translated version of the page. -->
+<span id="tools-by-wiki"></span>
+
+<!-- Intro sentence. On a translatable page, wrap the module call in <tvar>:
+     read on <tvar name="date">{{#invoke:AI dashboard|date}}</tvar> -->
 Every number below is a count of edits carrying a change tag, since that tag was introduced, read on {{#invoke:AI dashboard|date}}. The "tags" link next to each wiki opens its Special:Tags, which lists the same counts. A dash means no tagged edits there. The last column counts articles, on {{#invoke:AI dashboard|date}} (see [[#leftovers|chatbot leftovers]]).
 
-<!-- One row. Repeat for each wiki, changing "en" and the hosts; "tags" links to the wiki's Special:Tags. -->
+<!-- One row. Repeat for each wiki, changing "en" and the hosts; "tags" links to the wiki's Special:Tags.
+     Keep the rows outside <translate>: only the headers and notes need translating. -->
 |-
 | style="text-align:left" | [[:en:|{{#language:en|{{PAGELANGUAGE}}}}]] <small>([[:en:Special:Tags|tags]])</small> || {{#invoke:AI dashboard|value|content_translation|en|zero=–}} || {{#invoke:AI dashboard|value|add_link|en|zero=–}} || {{#invoke:AI dashboard|value|editcheck_tone|en|zero=–}} || {{#invoke:AI dashboard|value|editcheck_llm_paste|en|zero=–}} || {{#invoke:AI dashboard|value|community_ai_filter|en|zero=–}} <small>(possible AI-generated citations)</small> || {{#invoke:AI dashboard|value|chatgpt_links|en|link=https://en.wikipedia.org/w/index.php?search=insource%3A%22utm_source%3Dchatgpt.com%22&title=Special%3ASearch&ns0=1&fulltext=1}}
 
